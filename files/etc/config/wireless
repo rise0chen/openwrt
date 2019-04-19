@@ -1,24 +1,23 @@
-config wifi-device  ra0
-	option type     ralink
-	option mode     9
-	option channel  auto
-	option txpower  100
-	option ht       20
-	option country  US
-	# ENABLE WIFI:
-	option disabled 0
-	
+config wifi-device 'ra0'
+	option type 'ralink'
+	option mode '9'
+	option channel 'auto'
+	option txpower '100'
+	option ht '20'
+	option country 'US'
+	option disabled '0'
+
 config wifi-iface
-	option device   ra0
-	option network  lan
-	option mode     ap
-	option ssid     FengdiSmartNet
-	option encryption psk2
-	option key    fengdismartnet
+	option device 'ra0'
+	option network 'lan'
+	option mode 'ap'
+	option ssid 'SmartNet'
+	option encryption 'psk2'
+	option key 'smartnet'
 	# WIFI relay
-	#option ApCliEnable     '1'
-	#option ApCliSsid       'aAP'
-	#option ApCliAuthMode   'WPA2PSK'
-	#option ApCliEncrypType 'AES'
-	#option ApCliPassWord   '87654321'
-	
+	option ApCliEnable '1'
+	option ApCliSsid 'routerName'
+	option ApCliAuthMode 'WPA2PSK'
+	option ApCliEncrypType 'AES'
+	option ApCliPassWord 'password'
+
