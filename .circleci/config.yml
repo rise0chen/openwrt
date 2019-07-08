@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: rise0chen/openwrt:16.04
+    steps:
+      - checkout
+      - run: ./scripts/feeds update -a
+      - run: ./scripts/feeds install -a
+      - run: make -j8 V=s > ./log_build
+      - checkout
+      - run: make -j1
+      - run: upToQn.py ./log_build openwrt/log_build.txt
+      - run: upToQn.py ./bin/ramips/openwrt-ramips-mt7628-wrtnode2p-squashfs-sysupgrade.bin openwrt/mt7628-wrtnode2p.bin
+      - run: upToQn.py ./bin/ramips/openwrt-ramips-mt7628-wrtnode2r-squashfs-sysupgrade.bin openwrt/mt7688-wrtnode2r.bin
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
