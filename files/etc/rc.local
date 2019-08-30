@@ -1,7 +1,7 @@
 # Put your custom commands here that should be executed once
 # the system init finished. By default this file does nothing.
 
-#sh /usr/bin/restart.sh "/usr/bin/ser2tcp" > /root/ser2tcp.log 2>&1
-sh /usr/bin/restart.sh "/usr/bin/smartNet" > /root/smartNet.log 2>&1
+/etc/init.d/smartNet.sh start
+# /etc/init.d/socat.sh start
 
 exit 0
